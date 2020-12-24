@@ -1,0 +1,49 @@
+######## CNF TEMPLATE DEFINITIONS ###########
+global:
+  xgvela:
+    use_release_ns: false
+    create_ns: true
+    topogw_fqdn: "topo-gw.xgvela-xgvela1-mgmt-xgvela-xgvela1.svc.cluster.local:8080"
+    #Correct the namespace part in topogw_fqdn to match xgvela installation.
+nf:
+  #namespace: <VendorId>-<XGVelaId>-<NFClass>-<NFType>-<NFId>
+  #e.g: xgvela-xgvela1-appln-smf-smf1
+  version: "<version>"
+  vendorId: "mvnr"
+  xgvelaId: "xgvela1"
+  nfClass: "<mgmt | appln | infra>"
+  nfType: "<amf|smf|xgvela>"
+  nfId: "<nfId>"
+
+  cnftpl_configmap:
+    mgmt_cfg:
+      create: false
+      metaspec:
+        annotations:
+          configMgmt: enabled
+    static_cfg:
+      create: false
+      metaspec: {}
+    env_cfg:
+      create: false
+      metaspec: {}
+  cnftpl_secret:
+      create: false
+      metaspec: {}
+      secretspec: {}
+  cnftpl_namespaces:
+      create: false
+      metaspec: {}
+  cnftpl_dashboard:
+      create: false
+      metaspec: {}
+  cnftpl_eventdef:
+      create: false
+      metaspec: {}
+  cnftpl_alertsdef:
+      create: false
+      metaspec: {}
+  cnftpl_metricsdef:
+      create: false
+      metaspec: {}
+###########################################

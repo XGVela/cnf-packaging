@@ -1,0 +1,10 @@
+apiVersion: v1
+appVersion: "0.1"
+description: NF Service template.
+engine: gotpl
+maintainers:
+- email: support@xgvela.org
+  name: xGVela
+name: cnf_chart_template
+tillerVersion: '>=2.8.0'
+version: "2.10"
