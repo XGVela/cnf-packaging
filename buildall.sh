@@ -17,7 +17,7 @@
 ARTIFACTS_PATH="./artifacts"
 CHART_NAME="cnf_chart_template"
 
-echo -e "\e[1;32;40m[CNF-PACKAGING] Setting Artifacts Environment \e[0m"
+echo -e "[CNF-PACKAGING] Setting Artifacts Environment"
 rm -rf $ARTIFACTS_PATH
 mkdir -p $ARTIFACTS_PATH
 mkdir -p $ARTIFACTS_PATH/images
@@ -25,9 +25,9 @@ mkdir -p $ARTIFACTS_PATH/template
 
 version="$(cat $CHART_NAME/Chart.yaml | grep '^version:' | cut -d':' -f2 | tr -d '"' | tr -d '[:blank:]')"
 name="$(cat $CHART_NAME/Chart.yaml | grep '^name:' | awk '{print $2}' | tr -d '"' | tr -d '[:blank:]')"
-echo -e "\e[1;32;40m[CNF-PACKAGING] chart-name: $name, chart-version: $version \e[0m"
+echo -e "[CNF-PACKAGING] chart-name: $name, chart-version: $version"
 
-echo -e "\e[1;32;40m[CNF-PACKAGING] Generating Artifacts!!! \e[0m"
+echo -e "[CNF-PACKAGING] Generating Artifacts!!!"
 mkdir -p $ARTIFACTS_PATH/template/${name}_${version}
 cp -rf $CHART_NAME/* $ARTIFACTS_PATH/template/${name}_${version}/
 cp -rf images/* $ARTIFACTS_PATH/images/
@@ -35,4 +35,4 @@ cd $ARTIFACTS_PATH/template/
 tar -czf "${name}-${version}.tgz" ${name}_${version}
 
 rm -rf ${name}_${version}
-echo -e "\e[1;32;40m[CNF-PACKAGING] Released Artifacts: @$ARTIFACTS_PATH \e[0m"
+echo -e "[CNF-PACKAGING] Released Artifacts: @$ARTIFACTS_PATH"
